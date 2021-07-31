@@ -1,34 +1,30 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 class Counter extends Component {
-    state = {
-        count: this.props.value,
-        tags: ['tag1', 'tag2', 'tag3']
-    };
-
-    handleIncrement = product => {
-        this.setState({ count: this.state.count + 1 })
-    }
 
     render() {
-        console.log('props', this.props)
+        const { onIncrement, onDecrement, onDelete, counter } = this.props;
         return (
             <div>
+                <tspan>Item #{ counter.id }</tspan>
                 <span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
-                <button onClick={ () => this.handleIncrement(1) } className={"btn btn-secondary btn-sm"}>Increment</button>
+                <button onClick={ () => onIncrement(counter) } className={"btn btn-secondary btn-sm"}>+</button>
+                <button onClick={ () => onDecrement(counter) } className={"btn btn-secondary btn-sm m-1"}>-</button>
+                <button onClick={ () => onDelete(counter.id) } className={"btn btn-danger btn-sm m-2"}>Delete</button>
             </div>
         );
     }
 
     getBadgeClasses() {
+        const { counter } = this.props;
         let classes = "badge m-2 badge-";
-        classes += (this.state.count === 0) ? "warning" : "primary";
+        classes += (counter.value === 0) ? "warning" : "primary";
         return classes;
     }
 
     formatCount() {
-        const { count } = this.state;
-        return count === 0 ? "Zero" : count;
+        const { value } = this.props.counter;
+        return value === 0 ? 0 : value;
     }
 }
 
