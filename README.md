@@ -2,6 +2,10 @@
 
 [React JS - React Tutorial for Beginners by Programming with Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0&t=1066s)
 
+# Results
+
+![Course result](./docs/react-test-end.JPG)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
